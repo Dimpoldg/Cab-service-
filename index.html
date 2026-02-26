@@ -3,154 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D.B Car Service | Charaideo & Dibrugarh</title>
-
-<meta name="description" content="Professional car service booking with WhatsApp auto booking in Charaideo & Dibrugarh. Medical, Emergency & Function travel available.">
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<title>Dimpol Travel | Car & Emergency Ride Service</title>
 
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#333}
-header{background:#0d6efd;color:#fff;padding:25px;text-align:center}
-header h1{margin:0;font-size:28px}
-.hero{text-align:center;padding:40px 20px;background:#ffffff}
-.hero h2{color:#0d6efd;margin-bottom:10px}
-.container{padding:20px;max-width:900px;margin:auto}
-.box{background:#fff;padding:25px;margin-bottom:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-label{font-weight:bold}
-input,select{
-width:100%;
-padding:12px;
-margin:8px 0 15px 0;
-border-radius:6px;
-border:1px solid #ccc;
-font-size:15px;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f6f9;
+}
+header{
+  background:#0d47a1;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+header h1{
+  margin:0;
+  font-size:28px;
+}
+header p{
+  margin:5px 0 0;
+  font-size:14px;
+}
+.container{
+  max-width:600px;
+  margin:25px auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+h2{
+  color:#0d47a1;
+}
+label{
+  font-weight:bold;
+  margin-top:15px;
+  display:block;
+}
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:1px solid #ccc;
+  border-radius:6px;
 }
 button{
-width:100%;
-padding:14px;
-background:#25D366;
-color:#fff;
-border:none;
-border-radius:6px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  background:#25D366;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  margin-top:20px;
+  cursor:pointer;
 }
-button:hover{background:#1ebe5d}
-footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:14px}
-.error{color:red;font-size:14px;margin-top:-10px;margin-bottom:10px}
+button:hover{
+  opacity:0.9;
+}
+.alert{
+  background:#ffebee;
+  color:#c62828;
+  padding:10px;
+  margin-top:10px;
+  border-radius:6px;
+  display:none;
+}
+.section{
+  max-width:600px;
+  margin:30px auto;
+  background:white;
+  padding:22px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+.note{
+  max-width:600px;
+  margin:20px auto;
+  padding:15px;
+  background:#f1f5ff;
+  border-left:5px solid #0d47a1;
+  border-radius:6px;
+  font-size:14px;
+}
+.sticky{
+  position:fixed;
+  bottom:15px;
+  right:15px;
+}
+.sticky a{
+  display:block;
+  margin-top:10px;
+  padding:12px 16px;
+  border-radius:50px;
+  text-decoration:none;
+  color:white;
+  text-align:center;
+}
+.call{
+  background:#0d47a1;
+}
+.whatsapp{
+  background:#25D366;
+}
+footer{
+  text-align:center;
+  padding:15px;
+  color:#555;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1><i class="fa-solid fa-car"></i> D.B Car Service</h1>
-<p>Charaideo & Dibrugarh Area | 24×7 Emergency</p>
+  <h1>Dimpol Travel</h1>
+  <p>Reliable • Emergency • 24×7 Car & Travel Service</p>
 </header>
 
-<section class="hero">
-<h2>📲 Quick WhatsApp Booking</h2>
-<p>Safe Driving • On-Time Pickup • Professional Service</p>
-</section>
-
 <div class="container">
+  <h2>Book Your Ride</h2>
 
-<div class="box">
-<h2>🚗 Book Your Ride</h2>
+  <label>Your Name</label>
+  <input type="text" id="name">
 
-<label>Pickup Location *</label>
-<input type="text" id="pickup" placeholder="Enter pickup location">
-<div id="pickupError" class="error"></div>
+  <label>Mobile Number</label>
+  <input type="tel" id="mobile">
 
-<label>Drop Location *</label>
-<input type="text" id="drop" placeholder="Enter drop location">
-<div id="dropError" class="error"></div>
+  <label>Ride Type</label>
+  <select id="rideType" onchange="checkEmergency()">
+    <option value="">Select Ride Type</option>
+    <option>Medical / Hospital</option>
+    <option>Emergency</option>
+    <option>Airport Drop / Pickup</option>
+    <option>Railway Station</option>
+    <option>Outstation</option>
+    <option>Office / Daily Ride</option>
+    <option>School / College</option>
+    <option>Local Market</option>
+    <option>Parcel / Document Delivery</option>
+    <option>Function / Temple</option>
+  </select>
 
-<label>Journey Date *</label>
-<input type="date" id="date">
-<div id="dateError" class="error"></div>
+  <div class="alert" id="emergencyAlert">
+    🚨 This ride will be treated as PRIORITY
+  </div>
 
-<label>Pickup Time *</label>
-<input type="time" id="time">
-<div id="timeError" class="error"></div>
+  <label>Journey Date</label>
+  <input type="date" id="journeyDate">
 
-<label>Select Vehicle *</label>
-<select id="vehicle">
-<option value="">-- Select Vehicle --</option>
-<option>Maruti Alto</option>
-<option>Maruti Eeco Van</option>
-</select>
-<div id="vehicleError" class="error"></div>
+  <label>Pickup Time</label>
+  <input type="time" id="pickupTime">
 
-<button type="button" onclick="sendWhatsApp()">
-  Confirm & Book on WhatsApp
-</button>
+  <label>Pickup Location</label>
+  <input type="text" id="pickup">
 
+  <label>Drop Location</label>
+  <input type="text" id="drop">
+
+  <label>Extra Message</label>
+  <textarea id="message" rows="3"></textarea>
+
+  <button onclick="sendWhatsApp()">Confirm & Book on WhatsApp</button>
 </div>
 
+<div class="section">
+  <h2>About Dimpol Travel</h2>
+  <p><strong>Dimpol Travel</strong> ek trusted local travel service hai jo safe, reliable aur timely car service provide karta hai.</p>
+  <ul>
+    <li>⏱ Time par pickup & drop</li>
+    <li>🛡 Safe aur comfortable travel</li>
+    <li>🚨 Medical & Emergency rides ko priority</li>
+    <li>🤝 Friendly & professional service</li>
+  </ul>
+  <p>Booking confirmation WhatsApp ya call ke through di jaati hai.</p>
+</div>
+
+<div class="section">
+  <h2>Service Area</h2>
+  <p>
+    Hum <strong>Sonari, Kakotibari, Rajgarh</strong> aur
+    <strong>nearest areas</strong> me 24×7 car & travel service provide
+    karte hain. Outstation rides bhi available hain.
+  </p>
+</div>
+
+<div class="note">
+<strong>Note:</strong><br>
+Booking confirmation WhatsApp ya call ke through di jayegi.<br>
+Medical aur Emergency rides ko priority di jaati hai.<br>
+Fare distance aur time ke hisaab se confirm hota hai.
+</div>
+
+<div class="sticky">
+  <a href="tel:+916001968048" class="call">📞 Call Now</a>
+  <a href="#" onclick="sendWhatsApp()" class="whatsapp">💬 Book on WhatsApp</a>
 </div>
 
 <footer>
-© 2026 D.B Car Service | Call: 6001968048 | Hindi • English • Hinglish
+© 2026 Dimpol Travel. All Rights Reserved.
 </footer>
 
 <script>
-function sendBooking(){
+const WHATSAPP_NUMBER="916001968048";
 
-var pickup=document.getElementById("pickup").value.trim();
-var drop=document.getElementById("drop").value.trim();
-var date=document.getElementById("date").value;
-var time=document.getElementById("time").value;
-var vehicle=document.getElementById("vehicle").value;
-
-var valid=true;
-
-document.getElementById("pickupError").innerHTML="";
-document.getElementById("dropError").innerHTML="";
-document.getElementById("dateError").innerHTML="";
-document.getElementById("timeError").innerHTML="";
-document.getElementById("vehicleError").innerHTML="";
-
-if(pickup===""){
-document.getElementById("pickupError").innerHTML="Pickup location required";
-valid=false;
+function checkEmergency(){
+  const ride=document.getElementById("rideType").value;
+  document.getElementById("emergencyAlert").style.display=
+  (ride==="Medical / Hospital"||ride==="Emergency")?"block":"none";
 }
 
-if(drop===""){
-document.getElementById("dropError").innerHTML="Drop location required";
-valid=false;
-}
+navigator.geolocation.getCurrentPosition(pos=>{
+  document.getElementById("pickup").value=
+  "https://maps.google.com/?q="+pos.coords.latitude+","+pos.coords.longitude;
+});
 
-if(date===""){
-document.getElementById("dateError").innerHTML="Select journey date";
-valid=false;
-}
+function sendWhatsApp(){
+  const name=document.getElementById("name").value;
+  const mobile=document.getElementById("mobile").value;
+  const ride=document.getElementById("rideType").value;
+  const journeyDate=document.getElementById("journeyDate").value;
+  const pickupTime=document.getElementById("pickupTime").value;
+  const pickup=document.getElementById("pickup").value;
+  const drop=document.getElementById("drop").value;
+  const msg=document.getElementById("message").value;
 
-if(time===""){
-document.getElementById("timeError").innerHTML="Select pickup time";
-valid=false;
-}
+  let text="🚗 *Dimpol Travel – Booking Request*%0A%0A"+
+  "*Name:* "+name+"%0A"+
+  "*Mobile:* "+mobile+"%0A"+
+  "*Ride Type:* "+ride+"%0A"+
+  "*Journey Date:* "+journeyDate+"%0A"+
+  "*Pickup Time:* "+pickupTime+"%0A"+
+  "*Pickup:* "+pickup+"%0A"+
+  "*Drop:* "+drop+"%0A"+
+  "*Message:* "+msg;
 
-if(vehicle===""){
-document.getElementById("vehicleError").innerHTML="Select vehicle type";
-valid=false;
-}
+  if(ride==="Medical / Hospital"||ride==="Emergency"){
+    text="🚨 *EMERGENCY PRIORITY* 🚨%0A%0A"+text;
+  }
 
-
-var message="Hello D.B Car Service,%0A%0APickup Location: "+pickup+
-"%0ADrop Location: "+drop+
-"%0AJourney Date: "+date+
-"%0APickup Time: "+time+
-"%0AVehicle: "+vehicle+
-"%0A%0APlease confirm availability and fare.";
-
-window.open("https://wa.me/916001968048?text="+message,"_blank");
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+text,"_blank");
 }
 </script>
 
 </body>
-
 </html>
-
