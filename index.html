@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D.B Car Service | Charaideo & Dibrugarh</title>
+
+<meta name="description" content="Professional car service booking with WhatsApp auto booking in Charaideo & Dibrugarh. Medical, Emergency & Function travel available.">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#333}
+header{background:#0d6efd;color:#fff;padding:25px;text-align:center}
+header h1{margin:0;font-size:28px}
+.hero{text-align:center;padding:40px 20px;background:#ffffff}
+.hero h2{color:#0d6efd;margin-bottom:10px}
+.container{padding:20px;max-width:900px;margin:auto}
+.box{background:#fff;padding:25px;margin-bottom:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+label{font-weight:bold}
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0 15px 0;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:15px;
+}
+button{
+width:100%;
+padding:14px;
+background:#25D366;
+color:#fff;
+border:none;
+border-radius:6px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+button:hover{background:#1ebe5d}
+footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:14px}
+.error{color:red;font-size:14px;margin-top:-10px;margin-bottom:10px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1><i class="fa-solid fa-car"></i> D.B Car Service</h1>
+<p>Charaideo & Dibrugarh Area | 24×7 Emergency</p>
+</header>
+
+<section class="hero">
+<h2>📲 Quick WhatsApp Booking</h2>
+<p>Safe Driving • On-Time Pickup • Professional Service</p>
+</section>
+
+<div class="container">
+
+<div class="box">
+<h2>🚗 Book Your Ride</h2>
+
+<label>Pickup Location *</label>
+<input type="text" id="pickup" placeholder="Enter pickup location">
+<div id="pickupError" class="error"></div>
+
+<label>Drop Location *</label>
+<input type="text" id="drop" placeholder="Enter drop location">
+<div id="dropError" class="error"></div>
+
+<label>Journey Date *</label>
+<input type="date" id="date">
+<div id="dateError" class="error"></div>
+
+<label>Pickup Time *</label>
+<input type="time" id="time">
+<div id="timeError" class="error"></div>
+
+<label>Select Vehicle *</label>
+<select id="vehicle">
+<option value="">-- Select Vehicle --</option>
+<option>Maruti Alto</option>
+<option>Maruti Eeco Van</option>
+</select>
+<div id="vehicleError" class="error"></div>
+
+<button onclick="sendBooking()">💬 Confirm & Book on WhatsApp</button>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 D.B Car Service | Call: 6001968048 | Hindi • English • Hinglish
+</footer>
+
+<script>
+function sendBooking(){
+
+var pickup=document.getElementById("pickup").value.trim();
+var drop=document.getElementById("drop").value.trim();
+var date=document.getElementById("date").value;
+var time=document.getElementById("time").value;
+var vehicle=document.getElementById("vehicle").value;
+
+var valid=true;
+
+document.getElementById("pickupError").innerHTML="";
+document.getElementById("dropError").innerHTML="";
+document.getElementById("dateError").innerHTML="";
+document.getElementById("timeError").innerHTML="";
+document.getElementById("vehicleError").innerHTML="";
+
+if(pickup===""){
+document.getElementById("pickupError").innerHTML="Pickup location required";
+valid=false;
+}
+
+if(drop===""){
+document.getElementById("dropError").innerHTML="Drop location required";
+valid=false;
+}
+
+if(date===""){
+document.getElementById("dateError").innerHTML="Select journey date";
+valid=false;
+}
+
+if(time===""){
+document.getElementById("timeError").innerHTML="Select pickup time";
+valid=false;
+}
+
+if(vehicle===""){
+document.getElementById("vehicleError").innerHTML="Select vehicle type";
+valid=false;
+}
+
+if(!valid){return;}
+
+var message="Hello D.B Car Service,%0A%0APickup Location: "+pickup+
+"%0ADrop Location: "+drop+
+"%0AJourney Date: "+date+
+"%0APickup Time: "+time+
+"%0AVehicle: "+vehicle+
+"%0A%0APlease confirm availability and fare.";
+
+window.open("https://wa.me/916001968048?text="+message,"_blank");
+}
+</script>
+
+</body>
+</html>
