@@ -84,7 +84,9 @@ footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:14px}
 </select>
 <div id="vehicleError" class="error"></div>
 
-<button onclick="sendBooking()">💬 Confirm & Book on WhatsApp</button>
+<button type="button" onclick="sendWhatsApp()">
+  Confirm & Book on WhatsApp
+</button>
 
 </div>
 
@@ -136,7 +138,6 @@ document.getElementById("vehicleError").innerHTML="Select vehicle type";
 valid=false;
 }
 
-if(!valid){return;}
 
 var message="Hello D.B Car Service,%0A%0APickup Location: "+pickup+
 "%0ADrop Location: "+drop+
@@ -150,4 +151,5 @@ window.open("https://wa.me/916001968048?text="+message,"_blank");
 </script>
 
 </body>
+
 </html>
