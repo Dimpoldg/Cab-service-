@@ -1,99 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Driver Joining - Dimpol Travel</title>
+<div style="max-width:500px;margin:20px auto;
+background:#ffffff;padding:15px;border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);">
 
-<style>
-body{
-font-family:Arial;
-background:#f2f2f2;
-margin:0;
-padding:0;
-}
+<h2 style="text-align:center;color:#0d47a1;">
+🚖 Join as Driver - Dimpol Travel
+</h2>
 
-header{
-background:#0d47a1;
-color:white;
-text-align:center;
-padding:15px;
-}
+<!-- Benefits Section -->
+<h3 style="margin-top:10px;">Driver Join Karne ke Fayde:</h3>
 
-.form-box{
-max-width:500px;
-margin:20px auto;
-background:white;
-padding:20px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
+<ul style="font-size:14px;line-height:1.7;">
+<li>✅ Join karte hi driver ko trip milne ka chance</li>
+<li>✅ Local & outstation booking dono available</li>
+<li>✅ Company ke through direct trip allotment</li>
+<li>✅ Flexible duty (Full Time / Part Time)</li>
+<li>✅ Koi joining fees nahi</li>
+<li>✅ Refer ki hui confirmed trip par commission milega</li>
+<li>✅ Payment transparent aur time par</li>
+</ul>
 
-h2{
-text-align:center;
-}
+<hr>
 
-input,select,button{
-width:100%;
-padding:10px;
-margin:8px 0;
-border:1px solid #ccc;
-border-radius:5px;
-}
+<!-- Driver Form -->
+<h3 style="text-align:center;">Apply Now</h3>
 
-button{
-background:#28a745;
-color:white;
-font-size:16px;
-border:none;
-}
+<form onsubmit="sendToWhatsApp(); return false;">
 
-.back-btn{
-display:block;
-text-align:center;
-margin-top:15px;
-text-decoration:none;
-color:#0d47a1;
-}
-</style>
-</head>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
+<input type="text" id="license" placeholder="Driving License Number" required>
 
-<body>
-
-<header>
-<h1>Dimpol Travel</h1>
-<p>Driver Joining Form</p>
-</header>
-
-<div class="form-box">
-<h2>Apply as Driver</h2>
-
-<form>
-<input type="text" placeholder="Full Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<input type="text" placeholder="Driving License Number" required>
-
-<select required>
+<select id="licensetype" required>
 <option value="">License Type</option>
 <option>LMV</option>
 <option>Commercial / Transport</option>
 </select>
 
-<input type="number" placeholder="Driving Experience (Years)">
+<input type="number" id="experience" placeholder="Driving Experience (Years)">
 
-<select>
+<select id="availability">
 <option value="">Available For</option>
 <option>Full Time</option>
 <option>Part Time</option>
 <option>Night Shift</option>
 </select>
 
-<button type="submit">Apply Now</button>
+<button type="submit" style="
+background:#28a745;
+color:white;
+padding:10px;
+border:none;
+border-radius:5px;
+font-size:16px;">
+Apply Now
+</button>
+
 </form>
 
-<a href="index.html" class="back-btn">⬅ Back to Home</a>
+<hr>
+
+<!-- Note Section (LAST) -->
+<p style="font-size:13px;color:#444;">
+<b>Note:</b> Join karne ke baad drivers ko company ke available trips diye jaate hain.  
+Agar koi driver hame trip refer karta hai aur wo trip confirm hota hai,  
+to us confirmed trip par driver ko commission diya jayega.
+</p>
 
 </div>
 
-</body>
-</html>
+<script>
+function sendToWhatsApp(){
+var name = document.getElementById("name").value;
+var mobile = document.getElementById("mobile").value;
+var license = document.getElementById("license").value;
+var licensetype = document.getElementById("licensetype").value;
+var experience = document.getElementById("experience").value;
+var availability = document.getElementById("availability").value;
+
+var message =
+"🚖 *New Driver Joining Request* %0A%0A"
++ "👤 Name: " + name + "%0A"
++ "📱 Mobile: " + mobile + "%0A"
++ "🆔 License No: " + license + "%0A"
++ "📄 License Type: " + licensetype + "%0A"
++ "🧭 Experience: " + experience + " Years%0A"
++ "⏰ Available: " + availability;
+
+var whatsappURL = "https://wa.me/916001968048?text=" + message;
+window.open(whatsappURL, "_blank");
+}
+</script>
