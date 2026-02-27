@@ -90,8 +90,9 @@ footer{
   <label>Car Type</label>
   <select id="car">
     <option value="">Select car type</option>
-    <option>Alto </option>
-    <option>eeco van</option>
+    <option>Alto / Small Car</option>
+    <option>WagonR / Swift</option>
+    <option>EECO / Van</option>
     <option>SUV</option>
   </select>
 
@@ -101,13 +102,14 @@ footer{
   <div class="benefit-box">
     <strong>Driver Benefits (Join Karne ke Fayde):</strong><br><br>
 
-    ✔ Join karne se <b>rides milni shuru ho jayegi</b><br>
-    ✔ Aap apne <b>area ke hisaab se rides</b> le sakte ho<br>
-    ✔ Har successful ride dene par <b>$ commission</b> milega<br>
-    ✔ Medical aur emergency rides me <b>extra priority</b> milegi<br>
-    ✔ Outstation rides ka bhi chance milega<br>
-    ✔ Ride details <b>WhatsApp par direct</b> milegi – koi app install nahi<br>
-    ✔ Aap apni availability ke hisaab se ride accept ya reject kar sakte ho<br>
+    ✔ Join karte hi <b>ride request milni shuru</b> ho jayegi<br>
+    ✔ Apne <b>area ke hisaab se rides</b> milegi<br>
+    ✔ Har ride par <b>fixed + extra incentive</b><br>
+    ✔ <b>Emergency & medical rides</b> me priority<br>
+    ✔ <b>Outstation rides</b> ka bhi chance<br>
+    ✔ Ride details <b>direct WhatsApp</b> par – koi app install nahi<br>
+    ✔ Apni marzi se <b>ride accept / reject</b> kar sakte ho<br>
+    ✔ Weekly / daily earning option available<br>
   </div>
 </div>
 
@@ -117,19 +119,17 @@ footer{
 
 <script>
 function joinDriver(){
-  let msg =
+  var msg =
   "🚗 Driver Joining Request%0A%0A"+
-  "Name: "+name.value+"%0A"+
-  "Mobile: "+phone.value+"%0A"+
-  "Area: "+area.value+"%0A"+
-  "Car Type: "+car.value+"%0A%0A"+
+  "Name: "+document.getElementById('name').value+"%0A"+
+  "Mobile: "+document.getElementById('phone').value+"%0A"+
+  "Area: "+document.getElementById('area').value+"%0A"+
+  "Car Type: "+document.getElementById('car').value+"%0A%0A"+
   "I want to join Dimpol Travel driver network.";
-  
 
   window.open("https://wa.me/916001968048?text="+msg,"_blank");
 }
 </script>
 
 </body>
-
 </html>
