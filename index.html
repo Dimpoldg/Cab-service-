@@ -264,13 +264,7 @@ function checkEmergency(){
   document.getElementById("emergencyAlert").style.display=
   (ride==="Medical / Hospital"||ride==="Emergency")?"block":"none";
 }
-
-navigator.geolocation.getCurrentPosition(pos=>{
-  document.getElementById("pickup").value=
-  "https://maps.google.com/?q="+pos.coords.latitude+","+pos.coords.longitude;
-});
-
-function sendWhatsApp(){
+  function sendWhatsApp(){
   const name=document.getElementById("name").value;
   const mobile=document.getElementById("mobile").value;
   const ride=document.getElementById("rideType").value;
@@ -321,6 +315,7 @@ alert("Location not supported");
 </script>
 </body>
 </html>
+
 
 
 
