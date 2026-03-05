@@ -163,11 +163,11 @@ opacity:0.9;
   <div class="container">
   <h2>Book Your Ride</h2>
 
-    <label>Mobile Number</label>
-<input type="tel" id="mobile">
-
   <label>Your Name</label>
   <input type="text" id="name">
+
+    <label>Mobile Number</label>
+<input type="tel" id="mobile">
 
   <label>Ride Type</label>
   <select id="rideType" onchange="checkEmergency()">
@@ -200,6 +200,9 @@ opacity:0.9;
   <label>Drop Location</label>
   <input type="text" id="drop">
 
+    <label>Extra Message</label>
+<textarea id="message" rows="3"></textarea>
+    
   <button onclick="sendWhatsApp()">Confirm & Book on WhatsApp</button>
 </div>
 
@@ -312,6 +315,7 @@ alert("Location not supported");
 </script>
 </body>
 </html>
+
 
 
 
