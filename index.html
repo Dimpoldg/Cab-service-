@@ -195,8 +195,8 @@ opacity:0.9;
   <input type="time" id="pickupTime">
 
   <label>Pickup Location</label>
-  <input type="text" id="pickup">
-
+  <input type="text" id="pickup" readonly placeholder="Click to get location">
+<button onclick="getLocation()">📍 Get My Location</button>
   <label>Drop Location</label>
   <input type="text" id="drop">
 
@@ -296,10 +296,32 @@ function sendWhatsApp(){
 
   window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+text,"_blank");
 }
-</script>
+function getLocation(){
 
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+let lat = position.coords.latitude;
+let lon = position.coords.longitude;
+
+let mapLink = "https://maps.google.com/?q=" + lat + "," + lon;
+
+document.getElementById("pickup").value = mapLink;
+
+});
+
+}else{
+
+alert("Location not supported");
+
+}
+
+}
+</script>
 </body>
 </html>
+
 
 
 
