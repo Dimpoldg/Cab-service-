@@ -166,9 +166,6 @@ opacity:0.9;
   <label>Your Name</label>
   <input type="text" id="name">
 
-  <label>Mobile Number</label>
-  <input type="tel" id="mobile">
-
   <label>Ride Type</label>
   <select id="rideType" onchange="checkEmergency()">
     <option value="">Select Ride Type</option>
@@ -193,34 +190,11 @@ opacity:0.9;
 
   <label>Pickup Time</label>
   <input type="time" id="pickupTime">
-
- <label>Pickup Location</label>
-<input type="text" id="pickup" readonly placeholder="Click to get location">
-<button type="button" onclick="getLocation()">📍 Get My Location</button>
-
-<script>
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        let mapLink = "https://maps.google.com/?q=" + lat + "," + lon;
-        document.getElementById("pickup").value = mapLink;
-      },
-      function(error) {
-        if (error.code == error.PERMISSION_DENIED) {
-          alert("Please allow location access to get pickup location.");
-        } else {
-          alert("Unable to get location. Try again.");
-        }
-      }
-    );
-  } else {
-    alert("Your browser does not support location access.");
-  }
-}
+    
+<label>Pickup Location</label>
+<input type="text" id="pickup" placeholder="Enter pickup location manually">
 </script>
+    
   <label>Drop Location</label>
   <input type="text" id="drop">
 
@@ -336,6 +310,7 @@ alert("Location not supported");
 </script>
 </body>
 </html>
+
 
 
 
